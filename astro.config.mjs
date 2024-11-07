@@ -1,28 +1,32 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import rehypeAstroRelativeMarkdownLinks from "astro-rehype-relative-markdown-links";
+
 
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'Курс по Flutter',
+			description: 'Документация проекта.',
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/pitus-flutter-course/flutter_course_docs',
 			},
 			sidebar: [
 				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
+					label: 'Лекции',
+					autogenerate: { directory: 'Лекции' },
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+				  label: 'Flutter',
+				  autogenerate: { directory: 'Flutter' },
 				},
-			],
+			  ],
 		}),
 	],
+	base: '/docs',
+	markdown: {
+		rehypePlugins: [rehypeAstroRelativeMarkdownLinks],
+	  },
 });
