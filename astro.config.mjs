@@ -11,7 +11,7 @@ export default defineConfig({
 			title: 'Курс по Flutter',
 			description: 'Документация проекта.',
 			social: {
-				github: 'https://github.com/pitus-flutter-course/flutter_course_docs',
+				github: 'https://github.com/pitus-flutter-course/',
 			},
 			sidebar: [
 				{
